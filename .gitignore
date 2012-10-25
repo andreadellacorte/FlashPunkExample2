@@ -6,6 +6,7 @@
 .project
 .metadata
 bin/
+obj/
 bin-debug/
 bin-release/
 # Other files and folders

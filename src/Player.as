@@ -14,6 +14,7 @@ package
         public var sprSwordguy:Spritemap = new Spritemap( SWORDGUY, 48, 32 );
         public var prevx:Number = 0;
         public var prevy:Number = 0;
+		public var debug:Boolean = false;
         
         private static const kMoveSpeed:uint = 2;
 		private static const kJumpForce:uint = 20;
@@ -60,6 +61,14 @@ package
 				acceleration.y = -FP.sign(gravity.y) * kJumpForce;
 				acceleration.x = -FP.sign(gravity.x) * kJumpForce;
 			}
+			
+			//If no longer holding a key set acceleration to zero
+			//So he doesn't fly away
+			if (Input.released(Key.RIGHT) || Input.released(Key.LEFT) || Input.released(Key.SPACE))
+			{
+				acceleration.x = 0;
+				acceleration.y = 0;
+			}
             
             if (prevx == x && prevy == y)
             {
@@ -70,10 +79,37 @@ package
                 sprSwordguy.play("run");
             }
             
-			//Check if the player is touching the solid
+			//Check if the player is touching "solid"
 			if (collide("solid", x+2, y+2))
 			{
-				trace("collision detected!");
+				//Do fancy stuff because we have a collison!
+
+			}
+			
+			//Set up debug condition
+			if (Input.pressed(Key.D))
+			{
+				debug = !debug;
+				trace("Debug set to " + debug );
+			}	
+			
+			if (debug)
+			{
+				//Move are guy back to the center if he goes off screen
+				if (x > FP.width || x < 0 || y > FP.height || y < 0) 
+				{
+					x = FP.width / 2;
+					y = FP.height / 2;
+					
+					acceleration.x = 0;
+					acceleration.y = 0;
+				}
+				
+				//Debuging collisions with "solid" go here
+				if (collide("solid", x+2, y+2))
+				{
+					trace("collision detected!");
+				}
 			}
 			
             prevx = x;

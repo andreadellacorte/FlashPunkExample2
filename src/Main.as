@@ -6,8 +6,8 @@ package
 	[SWF(width = "640", height = "480")]
 	public class Main extends Engine 
 	{
-		public var splashScale:Number = 2;
-		public var splashVolume:Number = 1;
+		public var splashScale:Number = 2;	//What are these vars?	
+		public var splashVolume:Number = 1;	//
 		
 		public function Main():void 
 		{

@@ -9,8 +9,7 @@ package
 
 	public class Player extends PhysicsEntity
 	{
-		[Embed(source = 'assets/swordguy.png')]
-		private const SWORDGUY:Class;
+		[Embed(source = 'assets/swordguy.png')] private const SWORDGUY:Class;
         
         public var sprSwordguy:Spritemap = new Spritemap( SWORDGUY, 48, 32 );
         public var prevx:Number = 0;
@@ -28,6 +27,9 @@ package
             
             sprSwordguy.add("stand", [0, 1, 2, 3, 4, 5], 10, true);
 			sprSwordguy.add("run", [6, 7, 8, 9, 10, 11], 20, true);
+			
+			//Setting hit box for the player
+			setHitbox(48, 32); 
             
             gravity.y = 2.6;
 			maxVelocity.y = kJumpForce;
@@ -68,6 +70,12 @@ package
                 sprSwordguy.play("run");
             }
             
+			//Check if the player is touching the solid
+			if (collide("solid", x+2, y+2))
+			{
+				trace("collision detected!");
+			}
+			
             prevx = x;
             prevy = y;
         }

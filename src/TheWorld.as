@@ -8,6 +8,7 @@ package
 		{
             trace("TheWorld created!");
             add( new Player );
+			add( new Block );
 		}
         
         override public function begin( ):void

@@ -4,25 +4,22 @@ package
 	import net.flashpunk.FP;
 	
 	[SWF(width = "640", height = "480")]
+    
 	public class Main extends Engine 
 	{
-		public var splashScale:Number = 2;	//What are these vars?	
-		public var splashVolume:Number = 1;	//
-		
-		public function Main():void 
+		public function Main( ):void 
 		{
-			super(640, 480, 30, false);
-			
+			super( 640, 480, 30, false );
 		}
 		
-		override public function init():void 
+		override public function init( ):void 
 		{
-			super.init();
+			super.init( );
             
             FP.world = new SplashScreen;
 		}
 		
-		override public function update():void
+		override public function update( ):void
 		{
 			super.update();
 		}

@@ -5,8 +5,8 @@ package
     import net.flashpunk.utils.Input;
 	import net.flashpunk.utils.Key;
     import net.flashpunk.Entity;
-    
     import splash.Splash;
+    
 	public class SplashScreen extends World
 	{
         public var s:Splash;

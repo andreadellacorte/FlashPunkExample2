@@ -13,11 +13,11 @@ package
 		[Embed(source = 'assets/swordguy.png')] private const SWORDGUY:Class;
         
         private const _sprite:Spritemap = new Spritemap( SWORDGUY, 48, 32 );
-        private const _moveSpeed:uint = 2;
-		private const _jumpForce:uint = 20;
+        private const _moveSpeed:uint = 1;
+		private const _jumpForce:uint = 10;
         private const _floorFriction:Number = 0.4;
         private const _wallFriction:Number = 2;
-        private const _weight:Number = 2.3;
+        private const _weight:Number = 1.2;
 
         public var debug:Boolean = false;
 
@@ -88,7 +88,7 @@ package
 			if ( Input.pressed( Key.D ) )
 			{
 				debug = !debug;
-				trace( "Debug set to " + debug );
+                FP.console.enable();
 			}	
 			
 			if ( debug )
@@ -106,7 +106,7 @@ package
 				// Debugging collisions with "solid" go here
 				if ( collide( "solid", x+2, y+2 ) )
 				{
-					trace( "collision detected!" );
+					FP.log( "Collision!" );
 				}
 			}
         }

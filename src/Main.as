@@ -9,7 +9,7 @@ package
 	{
 		public function Main( ):void 
 		{
-			super( 640, 480, 30, false );
+			super( 640, 480, 60, false );
 		}
 		
 		override public function init( ):void 
